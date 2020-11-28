@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const marked = require('marked');
+const fetch = require('node-fetch');
 
 // verificar si path es absoluto
 const isAbsolute = (route) => path.isAbsolute(route);
@@ -21,6 +22,14 @@ const readFile = (route) => fs.readFileSync(route, 'utf8');
 // convertir .md a html
 const transformHtml = (file) => marked(file);
 
+// validar links de array
+const validateLinks = (arrLikns) => {
+  const arr = arrLikns.map((obj) => fetch(obj.href)
+    .then((url) => ({ status: url.status, message: url.statusText, ...obj }))
+    .catch(() => ({ status: '500', message: 'Internal Server Error', ...obj })));
+  return Promise.all(arr);
+};
+
 module.exports = {
   isAbsolute,
   isFile,
@@ -31,4 +40,5 @@ module.exports = {
   readFile,
   transformRelative,
   transformHtml,
+  validateLinks,
 };
