@@ -2,6 +2,9 @@ const path = require('path');
 const fs = require('fs');
 const marked = require('marked');
 const fetch = require('node-fetch');
+const jsdom = require('jsdom');
+
+const { JSDOM } = jsdom;
 
 // verificar si path es absoluto
 const isAbsolute = (route) => path.isAbsolute(route);
@@ -21,7 +24,21 @@ const readDir = (route) => fs.readdirSync(route);
 const readFile = (route) => fs.readFileSync(route, 'utf8');
 // convertir .md a html
 const transformHtml = (file) => marked(file);
-
+// convertir a DOM
+const transformDOM = (fileHtml) => new JSDOM(fileHtml);
+// extraer links de dom (nodelist)
+const getLinks = (nodelist, file) => {
+  const arrLikns = Array.from(nodelist).map((element) => {
+    const obj = {};
+    if (element.getAttribute('href').indexOf('http') === 0) {
+      obj.text = element.textContent;
+      obj.href = element.getAttribute('href');
+      obj.file = file;
+    }
+    return obj;
+  });
+  return arrLikns.filter((element) => element.text !== undefined);
+};
 // validar links de array
 const validateLinks = (arrLikns) => {
   const arr = arrLikns.map((obj) => fetch(obj.href)
@@ -40,5 +57,7 @@ module.exports = {
   readFile,
   transformRelative,
   transformHtml,
+  transformDOM,
+  getLinks,
   validateLinks,
 };
