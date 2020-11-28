@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const marked = require('marked');
 
 // verificar si path es absoluto
 const isAbsolute = (route) => path.isAbsolute(route);
@@ -17,6 +18,8 @@ const routeExists = (route) => fs.existsSync(route);
 const readDir = (route) => fs.readdirSync(route);
 // extraer el array todos lo contenido en primer nivel
 const readFile = (route) => fs.readFileSync(route, 'utf8');
+// convertir .md a html
+const transformHtml = (file) => marked(file);
 
 module.exports = {
   isAbsolute,
@@ -27,4 +30,5 @@ module.exports = {
   readDir,
   readFile,
   transformRelative,
+  transformHtml,
 };
