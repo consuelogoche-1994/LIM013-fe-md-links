@@ -16,6 +16,6 @@ const mdLinks = (path, opts = { validate: false }) => new Promise((resolve, reje
 });
 // ************************************ Export module **********************************
 module.exports = { mdLinks };
-mdLinks('D:/BootCamp-Laboratoria/md-prueba')
+mdLinks('D:/BootCamp-Laboratoria/prueba')
   .then((err) => { console.log(err); })
   .catch((error) => { console.log(error); });
