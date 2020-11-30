@@ -1,22 +1,21 @@
-const md = require('./index.js');
+const md = require('./app.js');
 
-console.log(`isAbsolute ${md.isAbsolute('D:/BootCamp-Laboratoria/LIM013-fe-md-links/README.md')}`);
-console.log(`es un file ${md.isFile('C:/Users/Estudiante/Desktop/mdlink.docx')}`);
-console.log(`path es un directorio ${md.isDirectory('C:/Users/Estudiante/Desktop/mdlink.docx')}`);
-// console.log(md.isDirectory('C:/Users/Estudiante/Desktop'));
-// console.log(`path existe ${md.routeExists('D:/BootCamp-Laboratoria/LIM013-fe-md-links/')}`);
-// console.log(`path es un file ${md.isMdFile('D:/LIM013-fe-md-links/README.md')}`);
-// console.log(md.readDir('D:/BootCamp-Laboratoria/LIM013-fe-md-links/'));
-// // console.log(md.readFile('D:/BootCamp-Laboratoria/LIM013-fe-md-links/README.md'));
-// // md.LinksValidate('https://www.npmjs.com/package/node-fetch')
-// //   .then((res) => { console.log(res); })
-// //   .catch((err) => { console.log(err); });
-// console.log(`transformar en absoluto ${md.transformRelative('README.md')}`);
-const file = 'D:/BootCamp-Laboratoria/LIM013-fe-md-links/README.md';
-const dom = md.transformHtml(md.readFile(file));
-const link = md.transformDOM(dom).window.document.querySelectorAll('a');
-// console.log(md.getLinks(link, file));
-const arraylinks = md.getLinks(link, file);
-
-md.validateLinks(arraylinks)
-  .then((val) => console.log(val));
+// *******************Extract and validate links from markdown files********************
+const mdLinks = (path, opts = { validate: false }) => new Promise((resolve, reject) => {
+  const pathValid = md.validatePath(path);
+  if (pathValid) {
+    if (opts.validate === true) { resolve(md.mdlinksValidate(pathValid)); }
+    if (opts.validate === false) { resolve(md.getMdlinks(pathValid)); }
+  }
+  let err = '';
+  if (pathValid === false) { err = 'The path entered is not found'; reject(err); }
+  if (opts.validate !== true || opts.validate !== false) {
+    err = 'The second argument only allows an object with true or false property value';
+    reject(err);
+  }
+});
+// ************************************ Export module **********************************
+module.exports = { mdLinks };
+mdLinks('D:/BootCamp-Laboratoria/md-prueba')
+  .then((err) => { console.log(err); })
+  .catch((error) => { console.log(error); });

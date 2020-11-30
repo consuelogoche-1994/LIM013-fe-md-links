@@ -6,31 +6,31 @@ const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
 
-// verificar si path es absoluto
-const isAbsolute = (route) => path.isAbsolute(route);
-// resolver a ruta absoluta
-const transformRelative = (route) => path.resolve(route);
-// verificar si extensión es .md
-const isMdFile = (route) => (path.extname(route) === '.md');
-// verificar si es file
+// normalize to path
+const normalizePath = (route) => path.normalize(route);
+// Solve to path absolute
+const solveToAbsolute = (route) => (path.isAbsolute(route) ? route : path.resolve(route));
+// Check if it's a file
 const isFile = (route) => fs.lstatSync(route).isFile();
-// verificar si es directorio
+// Check if extension is .md
+const isMdFile = (route) => (path.extname(route) === '.md');
+// Check if it's a directory
 const isDirectory = (route) => fs.statSync(route).isDirectory();
-// verificar si directorio o documento existe
-const routeExists = (route) => fs.existsSync(route);
-// extraer el array todos lo contenido en primer nivel
+// check if path exists
+const pathExists = (route) => fs.existsSync(route);
+// Extract directory content
 const readDir = (route) => fs.readdirSync(route);
-// extraer el array todos lo contenido en primer nivel
-const readFile = (route) => fs.readFileSync(route, 'utf8');
-// convertir .md a html
-const transformHtml = (file) => marked(file);
-// convertir a DOM
-const transformDOM = (fileHtml) => new JSDOM(fileHtml);
-// extraer links de dom (nodelist)
+// Transform .md file to html with manageable DOM
+const transformToHtml = (fileMd) => {
+  const htmlFile = marked(fs.readFileSync(fileMd, 'utf8'));
+  const dom = new JSDOM(htmlFile);
+  return dom;
+};
+// Extract and save links from .md file in an array
 const getLinks = (nodelist, file) => {
   const arrLikns = Array.from(nodelist).map((element) => {
     const obj = {};
-    if (element.getAttribute('href').indexOf('http') === 0) {
+    if (element.getAttribute('href').indexOf('http') !== -1) {
       obj.text = element.textContent;
       obj.href = element.getAttribute('href');
       obj.file = file;
@@ -48,16 +48,14 @@ const validateLinks = (arrLikns) => {
 };
 
 module.exports = {
-  isAbsolute,
+  normalizePath,
+  solveToAbsolute,
   isFile,
-  isDirectory,
-  routeExists,
   isMdFile,
+  isDirectory,
+  pathExists,
   readDir,
-  readFile,
-  transformRelative,
-  transformHtml,
-  transformDOM,
+  transformToHtml,
   getLinks,
   validateLinks,
 };
