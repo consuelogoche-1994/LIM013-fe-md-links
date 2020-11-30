@@ -3,8 +3,8 @@ const md = require('./index.js');
 // ********************************* Validate Path **************************************
 const validatePath = (path) => {
   const pathAbsolute = md.solveToAbsolute(path);
-  const existspath = md.pathExists(pathAbsolute) ? pathAbsolute : false;
-  return existspath;
+  const existingpath = md.pathExists(pathAbsolute) ? pathAbsolute : false;
+  return existingpath;
 };
 // **********Extract and save links from all .md files to an array (RECURSIVE)***********
 const getMdlinks = (path) => {
