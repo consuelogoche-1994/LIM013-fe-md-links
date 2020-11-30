@@ -30,7 +30,7 @@ const transformToHtml = (fileMd) => {
 const getLinks = (nodelist, file) => {
   const arrLikns = Array.from(nodelist).map((element) => {
     const obj = {};
-    if (element.getAttribute('href').indexOf('http') !== -1) {
+    if (element.getAttribute('href').indexOf('http') === 0) {
       obj.text = element.textContent;
       obj.href = element.getAttribute('href');
       obj.file = file;
@@ -43,7 +43,7 @@ const getLinks = (nodelist, file) => {
 const validateLinks = (arrLikns) => {
   const arr = arrLikns.map((obj) => fetch(obj.href)
     .then((url) => ({ status: url.status, message: url.statusText, ...obj }))
-    .catch(() => ({ status: '500', message: 'Internal Server Error', ...obj })));
+    .catch(() => ({ status: 500, message: 'Internal Server Error', ...obj })));
   return Promise.all(arr);
 };
 
