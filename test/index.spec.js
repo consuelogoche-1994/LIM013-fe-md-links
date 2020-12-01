@@ -5,11 +5,11 @@ const arraylinkValid = [{
   href: 'https://www.npmjs.com/',
   file: 'D:\\BootCamp-Laboratoria\\LIM013-fe-md-links\\test\\prueba\\README.md',
 }];
-// const arraylinkInValid = [{
-//   text: 'npm',
-//   href: 'https://www.ns.com/',
-//   file: 'D:\\BootCamp-Laboratoria\\LIM013-fe-md-links\\test\\prueba\\README.md',
-// }];
+const arraylinkInValid = [{
+  text: 'npm',
+  href: 'https://www.ns.com/',
+  file: 'D:\\BootCamp-Laboratoria\\LIM013-fe-md-links\\test\\prueba\\README.md',
+}];
 
 describe('normalize to path', () => {
   it('is a function', () => {
@@ -76,7 +76,7 @@ describe('Extract directory content', () => {
     expect(typeof md.readDir).toBe('function');
   });
   it('return "README.md" ', () => {
-    expect(md.readDir(md.solveToAbsolute('test/prueba/'))[0]).toEqual('README.md');
+    expect(md.readDir(md.solveToAbsolute('test/prueba/'))).toHaveLength(2);
   });
 });
 
@@ -107,16 +107,18 @@ describe('validar links de array', () => {
   it('is a function', () => {
     expect(typeof md.validateLinks).toBe('function');
   });
-  it('return status 200 / 500', () => {
+  it('return status 200', () => {
     md.validateLinks(arraylinkValid)
       .then((element) => {
         expect(element[0].status).toEqual(200);
       });
   });
-//   it('return status 500', () => {
-//     md.validateLinks(arraylinkInValid)
-//       .then((element) => {
-//         expect(element[0].status).toEqual(500);
-//       });
-//   });
+  it('return status 500', (done) => {
+    md.validateLinks(arraylinkInValid)
+      .then((element) => {
+        console.log(element);
+        expect(element[0].status).toBe(500);
+        done();
+      });
+  });
 });
