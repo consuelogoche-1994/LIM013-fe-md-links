@@ -26,10 +26,11 @@ describe('Extract and save links from all .md (RECURSIVE)', () => {
   it('is a function', () => {
     expect(typeof md.mdlinksValidate).toBe('function');
   });
-  it('return status element [0] = 200', () => {
+  it('return status element [0] = 200', (done) => {
     md.mdlinksValidate('test/prueba')
       .then((arr) => {
         expect(arr[0].status).toBe(200);
+        done();
       });
   });
 });

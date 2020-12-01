@@ -7,7 +7,7 @@ const arraylinkValid = [{
 }];
 const arraylinkInValid = [{
   text: 'npm',
-  href: 'https://www.ns.com/',
+  href: 'https://ww.ns.com/',
   file: 'D:\\BootCamp-Laboratoria\\LIM013-fe-md-links\\test\\prueba\\README.md',
 }];
 
@@ -107,17 +107,17 @@ describe('validar links de array', () => {
   it('is a function', () => {
     expect(typeof md.validateLinks).toBe('function');
   });
-  it('return status 200', () => {
+  it('return status "Internal Server Error"', (done) => {
+    md.validateLinks(arraylinkInValid)
+      .then((element) => {
+        expect(element[0].message).toBe('Internal Server Error');
+        done();
+      });
+  });
+  it('return status 200', (done) => {
     md.validateLinks(arraylinkValid)
       .then((element) => {
         expect(element[0].status).toEqual(200);
-      });
-  });
-  it('return status 500', (done) => {
-    md.validateLinks(arraylinkInValid)
-      .then((element) => {
-        console.log(element);
-        expect(element[0].status).toBe(500);
         done();
       });
   });
