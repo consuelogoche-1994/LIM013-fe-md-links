@@ -1,4 +1,4 @@
-const md = require('../src/app.js');
+const md = require('../src/API/options.js');
 
 describe('the path is validated and verifies if it exists', () => {
   it('is a function', () => {

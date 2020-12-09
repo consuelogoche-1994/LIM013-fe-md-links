@@ -1,9 +1,9 @@
-const md = require('./index.js');
+const md = require('./utils.js');
 
 // ********************************* Validate Path **************************************
 const validatePath = (path) => {
-  const pathAbsolute = md.solveToAbsolute(path);
-  const existingpath = md.pathExists(pathAbsolute) ? pathAbsolute : false;
+  const pathNormalize = md.normalizePath(path);
+  const existingpath = md.pathExists(pathNormalize) ? md.solveToAbsolute(pathNormalize) : false;
   return existingpath;
 };
 // **********Extract and save links from all .md files to an array (RECURSIVE)***********

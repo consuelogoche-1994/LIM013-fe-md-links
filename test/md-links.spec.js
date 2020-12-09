@@ -1,4 +1,4 @@
-const md = require('../src/md-links.js');
+const md = require('../src/API/md-links.js');
 
 describe('TEST API MD-LINKS', () => {
   it('is a function', () => {

@@ -1,4 +1,4 @@
-const md = require('../src/index.js');
+const md = require('../src/API/utils.js');
 
 const arraylinkValid = [{
   text: 'npm',
@@ -87,7 +87,7 @@ describe('Transform .md file to html with manageable DOM', () => {
   it('return "https://www.npmjs.com/" ', () => {
     const dom = md.transformToHtml(md.solveToAbsolute('test/prueba/README.md'));
     const textcontent = dom.window.document.querySelector('a').getAttribute('href');
-    expect(textcontent).toEqual('https://www.npmjs.com/');
+    expect(textcontent).toBe('https://www.npmjs.com/');
   });
 });
 
