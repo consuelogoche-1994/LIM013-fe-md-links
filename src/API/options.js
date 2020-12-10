@@ -1,12 +1,11 @@
 const md = require('./utils.js');
 
-// ********************************* Validate Path **************************************
+// Validate Path
 const validatePath = (path) => {
-  const pathNormalize = md.normalizePath(path);
-  const existingpath = md.pathExists(pathNormalize) ? md.solveToAbsolute(pathNormalize) : false;
+  const existingpath = md.pathExists(path) ? md.solveToAbsolute(path) : false;
   return existingpath;
 };
-// **********Extract and save links from all .md files to an array (RECURSIVE)***********
+// Extract and save links from all .md files to an array (RECURSIVE)
 const getMdlinks = (path) => {
   let arrayResult = [];
   if (md.isFile(path) && md.isMdFile(path)) {
@@ -22,7 +21,7 @@ const getMdlinks = (path) => {
   }
   return arrayResult;
 };
-// ****************************Validate the links of all markdown files*****************
+// Validate the links of all markdown files
 const mdlinksValidate = (path) => {
   const arrayLinks = getMdlinks(path);
   return md.validateLinks(arrayLinks);

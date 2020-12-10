@@ -1,5 +1,3 @@
-const chalk = require('chalk');
-
 // solve entered options
 const extractOptions = (opts) => {
   const optsValidate = opts.includes('--validate') || opts.includes('--v') || opts.includes('--V');
@@ -13,35 +11,19 @@ const extractOptions = (opts) => {
   if (opts.length === 2 && optsValidate && optsStats) { result = 'validateAndStats'; }
   return result;
 };
-// Join array of results with or without validating
-const joinResult = (arrResult) => {
-  arrResult.forEach((obj) => {
-    const file = chalk.hex('#045280')(obj.file);
-    const href = chalk.hex('#ADB70C')(obj.href);
-    const text = chalk.hex('#0099A1')(obj.text.substr(0, 50));
-    if (obj.status) {
-      const message = (obj.status >= 400) ? 'fail' : 'ok';
-      const color = (message === 'ok') ? chalk.bgGreen : chalk.bgRed;
-      const status = chalk.hex('#C71AB7')(obj.status);
-      const messageColor = color(message);
-      return console.log(`${file} ${href} ${messageColor} ${status} ${text}`);
-    }
-    return console.log(`${file} ${href} ${text}`);
-  });
-};
 // count total of links and unique links
 const stats = (arr) => {
   const arlinks = arr.reduce((acum, el) => acum.concat(el.href), []);
   const unique = arlinks.reduce((acum, el, i) => (arlinks.indexOf(el) === i ? acum + 1 : acum), 0);
-  return console.log(`Total: ${arlinks.length}\nUnique: ${unique}`);
+  const total = arlinks.length;
+  return { total, unique };
 };
-// hhhh
-const stastValidate = (arr) => {
+// count total of links broken
+const statsValidate = (arr) => {
   const arrStats = arr.reduce((acum, el) => acum.concat(el.status), []);
   const broken = arrStats.reduce((acum, el) => ((el >= 400) ? acum + 1 : acum), 0);
-  stats(arr);
-  return console.log(chalk.redBright(`Broken: ${broken}`));
+  return { broken };
 };
 module.exports = {
-  extractOptions, joinResult, stats, stastValidate,
+  extractOptions, stats, statsValidate,
 };
