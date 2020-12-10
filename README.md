@@ -6,7 +6,7 @@
 * [2. Flowchart](#2-flowchart)
 * [3. Backlog de la implementación](#3-backlog-de-la-implementación)
 * [4. Documentación técnica](#4-documentación-tecnica)
-* [5. Instalación](#5-instalacion)
+* [5. Instalación](#5-instalación)
 
 ***
 
