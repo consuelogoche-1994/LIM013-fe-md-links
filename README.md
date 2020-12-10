@@ -21,10 +21,9 @@ Se ha desarrollado esta herramienta usando Node.js, para que lea y analice archi
 ## 2. Flowchart
 
 * Flowchart de API
-![flowchart](\img\flowchartApi.png)
+![flowchart](img\flowchartApi.png)
 * Flowchart de CLI
-![flowchart](\img\flowchartCli.png)
-
+![flowchart](img\flowchartCli.png)
 
 ## 3. Backlog de la implementación
 
