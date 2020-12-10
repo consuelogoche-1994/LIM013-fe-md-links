@@ -21,9 +21,9 @@ Se ha desarrollado esta herramienta usando Node.js, para que lea y analice archi
 ## 2. Flowchart
 
 * Flowchart de API
-![flowchart](img\flowchartApi.png)
+![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartApi.png)
 * Flowchart de CLI
-![flowchart](img\flowchartCli.png)
+![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartCli.png)
 
 ## 3. Backlog de la implementación
 
