@@ -1,5 +1,5 @@
 {
-  "name": "md-links-cg",
+  "name": "md_links_cg",
   "version": "1.0.0",
   "description": "Designed to extract and validate links from markdown files",
   "main": "src/API/md-links.js",
@@ -37,7 +37,8 @@
     "chalk": "^4.1.0",
     "eslint-plugin-jest": "^24.1.0",
     "jsdom": "^16.4.0",
-    "marked": "^1.2.5",
-    "node-fetch": "^2.6.1"
+    "marked": "^1.2.6",
+    "node-fetch": "^2.6.1",
+    "semver": "^7.3.4"
   }
 }

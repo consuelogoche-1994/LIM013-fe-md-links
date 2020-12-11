@@ -17,7 +17,6 @@ const getMdlinks = (path) => {
     md.readDir(path).forEach((element) => {
       const mdfile = getMdlinks(`${path}/${element}`);
       arrayResult = arrayResult.concat(mdfile);
-      return arrayResult;
     });
   }
   return arrayResult;

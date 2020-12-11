@@ -135,7 +135,7 @@ manera a través de la terminal: `md-links <path> [options]`.
 
 ## 5. Instalación
 
-* La librería y aplicación `md-links` se pueden instalar de la siguiente manera, para poder proceder con la instalación es importante que este instalado `npm` que viene por defecto al instalarse `node`.
+* La librería y aplicación `md-links` se pueden de dos maneras, para poder proceder con la instalación es importante que este instalado `npm` que viene por defecto al instalarse `node`.
 
   * instalación por Github
 
@@ -143,3 +143,9 @@ manera a través de la terminal: `md-links <path> [options]`.
 
     * Para hacer uso de la API es necesario importar con 
       ` const md = require('md-links-cg') `.
+    
+  * instalación por `NPM`
+
+    * `npm i md_links_cg`
+
+      
