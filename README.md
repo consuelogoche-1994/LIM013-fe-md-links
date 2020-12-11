@@ -20,69 +20,76 @@ Se ha desarrollado esta herramienta usando Node.js, para que lea y analice archi
 
 ## 2. Flowchart
 
-* Flowchart de API
+### Flowchart de API
 ![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartApi.png)
-* Flowchart de CLI
-![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartCli.png)
+### Flowchart de CLI
+![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartCli.png)
 
 ## 3. Backlog de la implementación
 
-* Este proyecto se debe "resolver" de manera individual.
+* Toda la planificación del proyecto se llevo a cabo en github, agrupando `issues` 
+en `milestone`.
 
-* La librería y script ejecutable (herramienta de línea de comando -
-  CLI) debe estar implementada en JavaScript para ser ejecutada con
-  Node.js. **Está permitido usar librerías externas**.
+* [ ] Organization and creation of the flowchart
+* [ ] Architecture and boilerplate
+* [ ] Create API
+* [ ] API publication and test
+* [ ] Create CLI
+* [ ] Cli publication
+* [ ] Readme and project completion
 
-* Tu módulo debe ser instalable via `npm install <github-user>/md-links`. Este
-  módulo debe incluir tanto un _ejecutable_ que podamos invocar en la línea de
-  comando como una interfaz que podamos importar con `require` para usarlo
-  programáticamente.
+![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/github.png)
 
-* Los tests unitarios deben cubrir un mínimo del 70% de _statements_,
-  _functions_, _lines_ y _branches_. Te recomendamos explorar [Jest](https://jestjs.io/)
-  para tus pruebas unitarias.
-
-* Los tests unitarios deben cubrir un mínimo del 70% de statements, functions, lines y branches., ademas de pasar los test y el linter. Te recomendamos utilizar Jest para tus pruebas unitarias.
-
-* Para este proyecto no está permitido utilizar `async/await`.
-
-* Para este proyecto es opcional el uso de ES Modules `(import/export)`, en el
-  caso optes utilizarlo deberás de crear un script de `build` en el `package.json`
-  que los transforme en `requires` y `module.exports` con ayuda de babel.
 
 ## 4. Documentación técnica
 
-Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
-repositorio.
+### Api
 
-Antes de comenzar a codear, es necesario que pensemos en la arquitectura y
-boilerplate del proyecto, por lo que `antes de que empieces tu planificacion
-y a trabajar en la funcionalidad de tu proyecto deberás de haber
-creado tu boilerplate y tus tests`. Esto debería quedar
-detallado en tu repo y haberte asegurado de haber recibido feedback de uno
-de tus coaches. Una vez hayas terminado de definir la arquitectura y los tests
-de tu proyecto estarás lista para iniciar con tu **planificacion** por lo cual
-deberas de hacer uso de una serie de _issues_ y _milestones_ para priorizar
-tus tareas y crear un _project_ para organizar el trabajo y poder hacer
-seguimiento de tu progreso.
+* La función `mdLinks(path, options)`es un promesa que recibe como argumento un path y un objeto con una propiedad validate de  valor TRUE o FALSE, en ausencia del segundo argumento se le asigna por defecto el valor de FALSE a dicha propiedad.
 
-Dentro de cada _milestone_ se crearán y asignarán los _issues_ que cada quien
-considere necesarios.
+- `path`: Ruta absoluta o relativa al archivo o directorio. Si la ruta pasada es
+  relativa, se resuelve como relativa al directorio desde donde se invoca
+  node - _current working directory_).
+- `options`: Un objeto con las siguientes propiedades:
+  - `validate`: Booleano que determina si se desea validar los links
+    encontrados.
+
+* En el siguiente ejemplo se llama a la función mdLinks con solo el primer argumento `mdLinks(path)`
+
+```js
+mdLinks('D:/md-prueba')
+  .then((err) => { 
+    console.log(err); 
+    })
+  .catch((error) => { 
+    console.log(error); 
+    });
+```
+- En caso de que el path ingresado sea inválido dara como resultado un mensaje de error `The path entered is not found`.
+
+- En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
+
+![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/APi.png)
+
+* En el siguiente ejemplo se llama a la función mdLinks con los dos argumentos  `mdLinks(path, options)`
+
+```js
+mdLinks('D:/md-prueba', { validate: true})
+  .then((err) => { 
+    console.log(err); 
+    })
+  .catch((error) => { 
+    console.log(error); 
+    });
+```
+- En caso que el segundo argumento ingresado diste del valor de true o false , o no tenga el formato incorrecto dará como resultado el siguiente mensaje de error `The second argument only allows an object with true or false property value`.
+
+- En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
+
+![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/ApiValidate.png)
+
 ## 5. Instalación
 
 Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
 repositorio.
 
-Antes de comenzar a codear, es necesario que pensemos en la arquitectura y
-boilerplate del proyecto, por lo que `antes de que empieces tu planificacion
-y a trabajar en la funcionalidad de tu proyecto deberás de haber
-creado tu boilerplate y tus tests`. Esto debería quedar
-detallado en tu repo y haberte asegurado de haber recibido feedback de uno
-de tus coaches. Una vez hayas terminado de definir la arquitectura y los tests
-de tu proyecto estarás lista para iniciar con tu **planificacion** por lo cual
-deberas de hacer uso de una serie de _issues_ y _milestones_ para priorizar
-tus tareas y crear un _project_ para organizar el trabajo y poder hacer
-seguimiento de tu progreso.
-
-Dentro de cada _milestone_ se crearán y asignarán los _issues_ que cada quien
-considere necesarios.
