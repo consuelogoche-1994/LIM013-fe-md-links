@@ -30,13 +30,13 @@ Se ha desarrollado esta herramienta usando Node.js, para que lea y analice archi
 * Toda la planificación del proyecto se llevo a cabo en github, agrupando `issues` 
 en `milestone`.
 
-* [ ] Organization and creation of the flowchart
-* [ ] Architecture and boilerplate
-* [ ] Create API
-* [ ] API publication and test
-* [ ] Create CLI
-* [ ] Cli publication
-* [ ] Readme and project completion
+  *  Organization and creation of the flowchart
+  *  Architecture and boilerplate
+  *  Create API
+  *  API publication and test
+  *  Create CLI
+  *  Cli publication
+  *  Readme and project completion
 
 ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/github.png)
 
@@ -94,6 +94,7 @@ mdLinks('D:/md-prueba', { validate: true})
 manera a través de la terminal: `md-links <path> [options]`.
   - `path`: Ruta válida absoluta o relativa a directorio o file.
   - `options`: Puedes tomar los siguiente valores.
+
     * [] --validate || --v || --V
     * [] --stats || --s || --S
     * [] Combinación de las dos opciones anteriores
@@ -103,6 +104,7 @@ manera a través de la terminal: `md-links <path> [options]`.
   * `href`: URL encontrada.
   * `text`: Texto que aparecía dentro del link.
   * `file`: Ruta del archivo donde se encontró el link.
+  
   - Ejemplo
 
   ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/noOpts.png)
