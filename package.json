@@ -1,5 +1,5 @@
 {
-  "name": "md-links-cg",
+  "name": "consuelogoche",
   "version": "1.0.0",
   "description": "Designed to extract and validate links from markdown files",
   "main": "src/API/md-links.js",

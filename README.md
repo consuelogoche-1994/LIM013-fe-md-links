@@ -21,9 +21,9 @@ Se ha desarrollado esta herramienta usando Node.js, para que lea y analice archi
 ## 2. Flowchart
 
 ### Flowchart de API
-![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartApi.png)
+  ![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartApi.png)
 ### Flowchart de CLI
-![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartCli.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartCli.png)
 
 ## 3. Backlog de la implementación
 
@@ -38,7 +38,7 @@ en `milestone`.
   *  Cli publication
   *  Readme and project completion
 
-![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/github.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/github.png)
 
 
 ## 4. Documentación técnica
@@ -62,14 +62,14 @@ mdLinks('D:/md-prueba')
     console.log(err); 
     })
   .catch((error) => { 
-    console.log(error); 
+    console.log(error);
     });
 ```
-  - En caso de que el path ingresado sea inválido dara como resultado un mensaje de error `The path entered is not found`.
+  * En caso de que el path ingresado sea inválido dara como resultado un mensaje de error `The path entered is not found`.
 
-  - En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
+  * En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
 
-![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/APi.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/APi.png)
 
 * En el siguiente ejemplo se llama a la función mdLinks con los dos argumentos  `mdLinks(path, options)`
 
@@ -82,9 +82,9 @@ mdLinks('D:/md-prueba', { validate: true})
     console.log(error); 
     });
 ```
-  - En caso que el segundo argumento ingresado diste del valor de true o false , o no tenga el formato incorrecto dará como resultado el siguiente mensaje de error `The second argument only allows an object with true or false property value`.
+  * En caso que el segundo argumento ingresado diste del valor de true o false , o no tenga el formato incorrecto dará como resultado el siguiente mensaje de error `The second argument only allows an object with true or false property value`.
 
-  - En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
+  * En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
 
 ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/ApiValidate.png)
 
