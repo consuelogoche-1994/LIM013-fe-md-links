@@ -1,6 +1,6 @@
 {
   "name": "md_links_cg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Designed to extract and validate links from markdown files",
   "main": "src/API/md-links.js",
   "directories": {
