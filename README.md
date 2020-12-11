@@ -65,9 +65,9 @@ mdLinks('D:/md-prueba')
     console.log(error);
     });
 ```
-  * En caso de que el path ingresado sea inválido dara como resultado un mensaje de error `The path entered is not found`.
+  - En caso de que el path ingresado sea inválido dara como resultado un mensaje de error `The path entered is not found`.
 
-  * En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
+  - En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
 
   ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/APi.png)
 
@@ -82,11 +82,11 @@ mdLinks('D:/md-prueba', { validate: true})
     console.log(error); 
     });
 ```
-  * En caso que el segundo argumento ingresado diste del valor de true o false , o no tenga el formato incorrecto dará como resultado el siguiente mensaje de error `The second argument only allows an object with true or false property value`.
+  - En caso que el segundo argumento ingresado diste del valor de true o false , o no tenga el formato incorrecto dará como resultado el siguiente mensaje de error `The second argument only allows an object with true or false property value`.
 
-  * En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
+  - En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
 
-![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/ApiValidate.png)
+    ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/ApiValidate.png)
 
 ### CLI (Command Line Interface - Interfaz de Línea de Comando)
 
