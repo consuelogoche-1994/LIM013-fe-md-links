@@ -1,13 +1,16 @@
 {
-  "name": "lim013-fe-md-links",
-  "version": "1.0.0",
-  "description": "lim013-fe-md-links",
+  "name": "md-links-cg",
+  "version": "1.0.1",
+  "description": "Designed to extract and validate links from markdown files",
   "main": "src/API/md-links.js",
   "directories": {
     "test": "test"
   },
   "bin": {
     "md-links": "src/CLI/cli.js"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "test": "jest --coverage",
