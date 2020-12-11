@@ -135,6 +135,12 @@ manera a través de la terminal: `md-links <path> [options]`.
 
 ## 5. Instalación
 
-Para comenzar este proyecto tendrás que hacer un _fork_ y _clonar_ este
-repositorio.
+* La librería y aplicación `md-links` se pueden instalar de dos maneras, para poder proceder con la instalación es importante que este instalado `npm` que viene por defecto al instalarse `node`.
+
+  * instalación por Github
+
+    * `npm install consuelogoche-1994/LIM013-fe-md-links`
+
+    * Para hacer uso de la API es necesario importar con 
+      ` const md = require('LIM013-fe-md-links') `.
 
