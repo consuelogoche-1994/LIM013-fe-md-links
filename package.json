@@ -2,7 +2,7 @@
   "name": "lim013-fe-md-links",
   "version": "1.0.0",
   "description": "lim013-fe-md-links",
-  "main": "index.js",
+  "main": "src/API/md-links.js",
   "directories": {
     "test": "test"
   },
