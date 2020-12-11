@@ -43,7 +43,7 @@ en `milestone`.
 
 ## 4. Documentación técnica
 
-### Api
+### JavaScript API
 
 * La función `mdLinks(path, options)`es un promesa que recibe como argumento un path y un objeto con una propiedad validate de  valor TRUE o FALSE, en ausencia del segundo argumento se le asigna por defecto el valor de FALSE a dicha propiedad.
 
@@ -65,9 +65,9 @@ mdLinks('D:/md-prueba')
     console.log(error); 
     });
 ```
-- En caso de que el path ingresado sea inválido dara como resultado un mensaje de error `The path entered is not found`.
+  - En caso de que el path ingresado sea inválido dara como resultado un mensaje de error `The path entered is not found`.
 
-- En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
+  - En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
 
 ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/APi.png)
 
@@ -82,11 +82,54 @@ mdLinks('D:/md-prueba', { validate: true})
     console.log(error); 
     });
 ```
-- En caso que el segundo argumento ingresado diste del valor de true o false , o no tenga el formato incorrecto dará como resultado el siguiente mensaje de error `The second argument only allows an object with true or false property value`.
+  - En caso que el segundo argumento ingresado diste del valor de true o false , o no tenga el formato incorrecto dará como resultado el siguiente mensaje de error `The second argument only allows an object with true or false property value`.
 
-- En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
+  - En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
 
 ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/ApiValidate.png)
+
+### CLI (Command Line Interface - Interfaz de Línea de Comando)
+
+* El ejecutable de la aplicación debe poder ejecutarse de la siguiente
+manera a través de la terminal: `md-links <path> [options]`.
+  - `path`: Ruta válida absoluta o relativa a directorio o file.
+  - `options`: Puedes tomar los siguiente valores.
+    * [] --validate || --v || --V
+    * [] --stats || --s || --S
+    * [] Combinación de las dos opciones anteriores
+
+* Cuando en la terminal se ingresa `md-links <path>`, la aplicación mostrará en la terminal por defecto la ruta donde se encuentran los links del los archivos `.md` `( file )` , los links encontrados `( href )` y a su vez el texto del link `( text )` truncado en 50 caracteres.
+
+  * `href`: URL encontrada.
+  * `text`: Texto que aparecía dentro del link.
+  * `file`: Ruta del archivo donde se encontró el link.
+  - Ejemplo
+
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/noOpts.png)
+
+* Cuando en la terminal se ingresa la opción` --validate`, la aplicación mostrará en la terminal la ruta donde se encuentran los links del los archivos `.md` `(file)` , los links encontrados `( href )`, el texto `( text )` y a su vez validará cada link proporcionandonos un `(status)` y un `( message )`.
+
+  * `status`: Código de estado de respuesta HTTP.
+  * `message`: Ok o Fail.
+
+  - Ejemplo
+
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/validate.png)
+
+* Cuando en la terminal se ingresa `--status `, la aplicación mostrará en la terminal el total de links encontrados 
+`( Total )` y la cantidad de links que no se repiten ` ( Unique )`
+
+  - Ejemplo
+
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/stats.png)
+
+* Cuando en la terminal se ingresa `--validate --status `, la aplicación mostrará en la terminal el total de links encontrados `( Total )`, la cantidad de links que no se repiten ` ( Unique )` y adicionara los links rotos `( Broken )`.
+
+  - Ejemplo
+
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/validateAndStats.png)
+
+
 
 ## 5. Instalación
 

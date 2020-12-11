@@ -6,6 +6,8 @@ const jsdom = require('jsdom');
 
 const { JSDOM } = jsdom;
 
+// normalize to path
+const normalizePath = (route) => path.normalize(route);
 // Solve to path absolute
 const solveToAbsolute = (route) => (path.isAbsolute(route) ? route : path.resolve(route));
 // Check if it's a file
@@ -46,6 +48,7 @@ const validateLinks = (arrLikns) => {
 };
 
 module.exports = {
+  normalizePath,
   solveToAbsolute,
   isFile,
   isMdFile,

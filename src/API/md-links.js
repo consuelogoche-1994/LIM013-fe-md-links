@@ -15,6 +15,6 @@ const mdLinks = (path, opts = { validate: false }) => new Promise((resolve, reje
 // ************************************ Export module **********************************
 module.exports = { mdLinks };
 
-mdLinks('D:\\md-prueba')
-  .then((err) => { console.log(err); })
-  .catch((error) => { console.log(error); });
+// mdLinks('D:\\md-prueba')
+//   .then((err) => { console.log(err); })
+//   .catch((error) => { console.log(error); });
