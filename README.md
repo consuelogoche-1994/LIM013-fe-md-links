@@ -142,5 +142,4 @@ manera a través de la terminal: `md-links <path> [options]`.
     * `npm install consuelogoche-1994/LIM013-fe-md-links`
 
     * Para hacer uso de la API es necesario importar con 
-      ` const md = require('LIM013-fe-md-links') `.
-
+      ` const md = require('md-links-cg') `.
