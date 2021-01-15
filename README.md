@@ -21,9 +21,9 @@ Se ha desarrollado esta herramienta usando Node.js, para que lea y analice archi
 ## 2. Flowchart
 
 ### Flowchart de API
-  ![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartApi.png)
+  ![flowchart](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartApi.png?raw=true)
 ### Flowchart de CLI
-  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartCli.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/flowchartCli.png?raw=true)
 
 ## 3. Backlog de la implementación
 
@@ -38,7 +38,7 @@ en `milestone`.
   *  Cli publication
   *  Readme and project completion
 
-  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/github.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/github.png?raw=true)
 
 
 ## 4. Documentación técnica
@@ -69,7 +69,7 @@ mdLinks('D:/md-prueba')
 
   - En caso de que el path sea válido se resolvera un array con un objeto por cada link encontrado que tenga como propiedad información básica de cada link ` [{ href, text, file } ...]`.
 
-  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/APi.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/APi.png?raw=true)
 
 * En el siguiente ejemplo se llama a la función mdLinks con los dos argumentos  `mdLinks(path, options)`
 
@@ -86,7 +86,7 @@ mdLinks('D:/md-prueba', { validate: true})
 
   - En caso de que los argumentos sean correctos la función resolverá un array con un objeto por cada link encontrado que tenga como propiedad información básica y validada de cada link ` [{ href, text, file, status, message } ...]`.
 
-    ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/ApiValidate.png)
+    ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/ApiValidate.png?raw=true)
 
 ### CLI (Command Line Interface - Interfaz de Línea de Comando)
 
@@ -107,7 +107,7 @@ manera a través de la terminal: `md-links <path> [options]`.
   
   - Ejemplo
 
-  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/noOpts.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/noOpts.png?raw=true)
 
 * Cuando en la terminal se ingresa la opción` --validate`, la aplicación mostrará en la terminal la ruta donde se encuentran los links del los archivos `.md` `(file)` , los links encontrados `( href )`, el texto `( text )` y a su vez validará cada link proporcionandonos un `(status)` y un `( message )`.
 
@@ -116,20 +116,20 @@ manera a través de la terminal: `md-links <path> [options]`.
 
   - Ejemplo
 
-  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/validate.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/validate.png?raw=true)
 
 * Cuando en la terminal se ingresa `--status `, la aplicación mostrará en la terminal el total de links encontrados 
 `( Total )` y la cantidad de links que no se repiten ` ( Unique )`
 
   - Ejemplo
 
-  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/stats.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/stats.png?raw=true)
 
 * Cuando en la terminal se ingresa `--validate --status `, la aplicación mostrará en la terminal el total de links encontrados `( Total )`, la cantidad de links que no se repiten ` ( Unique )` y adicionara los links rotos `( Broken )`.
 
   - Ejemplo
 
-  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/validateAndStats.png)
+  ![flowchartCli](https://github.com/consuelogoche-1994/LIM013-fe-md-links/blob/master/img/validateAndStats.png?raw=true)
 
 
 
